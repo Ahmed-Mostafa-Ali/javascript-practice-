@@ -1,0 +1,145 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    background: #a50a0a54 !important;
+}
+.container{
+    width: 80%;
+    color: red;
+    margin:20px auto;
+}
+.acc{
+    width: 100%;
+    border-radius: 999px;
+    color: white;
+    background: #333;
+    outline: 0;
+    cursor: pointer;
+    position: relative;
+    text-align: left;
+    font-size: 20px;
+    padding: 10px;
+}
+.desc{
+    border: 2px solid rgba(199, 72, 72, 0.171);
+    color: red;
+    font-size: 20px;
+    max-height: 0;
+    overflow: hidden;
+    text-align: center;
+    margin: 10px;
+    border-radius: 999px;
+    background: #da83c7;
+}
+.acc::before{
+    content: "+";
+    color: rgb(2, 143, 161);
+    position: absolute;
+    right:0;
+    bottom: 0;
+    font-size: 30px;
+}
+.clock{
+    width: 300px;
+    height: 300px;
+    margin: auto;
+    position: relative;
+    background: #c9d5e0;
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+    border-radius: 50px;
+    box-shadow: 30px 30px 30px  -10px rgba(0, 0, 0, 0.15),   inset 15px 15px 10px rgba(255,255,255,.75),-15px -15px 35px rgba(255,255,255,.55)
+    ,inset -1px -1px 10px rgba(0,0,0,.2) ;
+ 
+}
+.clock .numbers{
+    font-weight: bolder;
+    position: absolute;
+    inset: 35px;
+    background: #152b4a;
+    border-radius: 50%;
+    box-shadow: 5px 5px 15px #152b4a66 , inset 5px 5px 5px rgba(255,255,255,.55),
+     -6px -6px 10px rgba(255,255,255,1);
+}
+.clock .numbers span{
+    position: absolute;
+    inset: 5px;
+    text-align: center;
+    color: #fff;
+    font-size: 1.25em;
+    transform: rotate(calc(90deg*var(--i)));
+}
+.clock .numbers span b{
+    font-weight: bolder;
+    display: inline-block;
+    transform: rotate(calc(-90deg*var(--i)));
+}
+.clock .numbers::before{
+    content: "";
+    position: absolute;
+    inset: 35px;
+    background: linear-gradient(#2196f3,#e91e63);
+    border-radius: 50%;
+    animation: rounding 2s linear infinite;
+}
+@keyframes rounding{
+    0%{
+        transform: rotate(360deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+.clock::before{
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #e91e63;
+    border-radius: 50%;
+    z-index: 1000;
+    box-shadow: 0 0 0 1px #e91e63 , 0 0 0 3px #fff
+    , 0 0 5px 5px rgba(0, 0, 0, 0.15);
+}
+.clock .numbers::after{
+    content: "";
+    position: absolute;
+    inset: 38px;
+    background:#152b4a;
+    border-radius: 50%;
+}
+
+.clock .numbers .circle{
+    display: flex;
+    position: absolute;
+    inset: 0;
+    justify-content: center;
+    border-radius: 50%;
+    z-index: 10;
+}
+.clock .numbers .circle i{
+    width: 3px;
+    height: 50%;
+    position: absolute;
+    background: #fff;
+    transform-origin: bottom;
+    transform:scaleY(.55);
+}
+.clock .numbers .circle#hr i{
+    transform: scaleY(.3);
+     width: 4px;
+}
+.clock .numbers .circle#mm i {
+    transform: scaleY(.45);
+}
+.clock .numbers .circle#sec i{
+  transform: scaleY(.55);
+  width: 2px;
+  background: #e91e63;
+  box-shadow: 0 30px 0 #e91e63;
+}
